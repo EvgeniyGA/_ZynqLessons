@@ -1,0 +1,52 @@
+{
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0.19  2019-03-26 bk=1.5019 VDI=41 GEI=35 GUI=JA:9.0 non-TLS
+#  -string -flagsOSRD
+preplace port DDR -pg 1 -lvl 7 -x 1920 -y 80 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -lvl 7 -x 1920 -y 100 -defaultsOSRD
+preplace port vid_hsync_0 -pg 1 -lvl 7 -x 1920 -y 530 -defaultsOSRD
+preplace port vid_vsync_0 -pg 1 -lvl 7 -x 1920 -y 570 -defaultsOSRD
+preplace port ck_out -pg 1 -lvl 7 -x 1920 -y 180 -defaultsOSRD
+preplace portBus VGA_R -pg 1 -lvl 7 -x 1920 -y 470 -defaultsOSRD
+preplace portBus VGA_G -pg 1 -lvl 7 -x 1920 -y 270 -defaultsOSRD
+preplace portBus VGA_B -pg 1 -lvl 7 -x 1920 -y 370 -defaultsOSRD
+preplace inst v_axi4s_vid_out_0 -pg 1 -lvl 4 -x 1110 -y 560 -defaultsOSRD
+preplace inst v_tc_0 -pg 1 -lvl 3 -x 730 -y 580 -defaultsOSRD
+preplace inst clk_wiz_0 -pg 1 -lvl 1 -x 110 -y 140 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 6 -x 1740 -y 110 -defaultsOSRD
+preplace inst proc_sys_reset_0 -pg 1 -lvl 2 -x 390 -y 100 -defaultsOSRD
+preplace inst xlconstant_0 -pg 1 -lvl 2 -x 390 -y 590 -defaultsOSRD
+preplace inst xlslice_0 -pg 1 -lvl 6 -x 1740 -y 470 -defaultsOSRD
+preplace inst xlslice_1 -pg 1 -lvl 6 -x 1740 -y 270 -defaultsOSRD
+preplace inst xlslice_2 -pg 1 -lvl 6 -x 1740 -y 370 -defaultsOSRD
+preplace inst mux_0 -pg 1 -lvl 5 -x 1460 -y 440 -defaultsOSRD
+preplace inst dataGen_0 -pg 1 -lvl 3 -x 730 -y 400 -defaultsOSRD
+preplace netloc clk_wiz_0_clk_out1 1 1 3 200 200 560 670 880
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 7 10 -10 NJ -10 NJ -10 NJ -10 NJ -10 NJ -10 1900
+preplace netloc proc_sys_reset_0_peripheral_aresetn 1 2 2 570 680 910
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 1 6 210 0 NJ 0 NJ 0 NJ 0 NJ 0 1890
+preplace netloc v_axi4s_vid_out_0_vtg_ce 1 2 3 590 730 NJ 730 1290
+preplace netloc xlconstant_0_dout 1 2 2 580 690 900
+preplace netloc v_axi4s_vid_out_0_vid_hsync 1 4 3 NJ 520 1590J 530 NJ
+preplace netloc v_axi4s_vid_out_0_vid_vsync 1 4 3 1300J 570 NJ 570 NJ
+preplace netloc v_axi4s_vid_out_0_vid_data 1 5 1 1590 270n
+preplace netloc xlslice_0_Dout 1 6 1 NJ 470
+preplace netloc xlslice_1_Dout 1 6 1 NJ 270
+preplace netloc xlslice_2_Dout 1 6 1 NJ 370
+preplace netloc dataGen_0_o_data 1 3 1 910 370n
+preplace netloc dataGen_0_o_data_valid 1 3 1 890 390n
+preplace netloc v_axi4s_vid_out_0_s_axis_video_tready 1 2 2 590 490 870
+preplace netloc dataGen_0_o_sof 1 3 1 880 410n
+preplace netloc dataGen_0_o_eol 1 3 1 900 430n
+preplace netloc v_axi4s_vid_out_0_vid_active_video 1 4 1 1300 450n
+preplace netloc v_axi4s_vid_out_0_vid_data1 1 4 1 1290 430n
+preplace netloc v_tc_0_vtiming_out 1 3 1 N 570
+preplace netloc processing_system7_0_DDR 1 6 1 NJ 80
+preplace netloc processing_system7_0_FIXED_IO 1 6 1 NJ 100
+levelinfo -pg 1 -10 110 390 730 1110 1460 1740 1920
+pagesize -pg 1 -db -bbox -sgen -10 -20 2050 760
+"
+}
+{
+   "da_ps7_cnt":"1"
+}
