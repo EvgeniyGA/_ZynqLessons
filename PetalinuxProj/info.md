@@ -1,3 +1,22 @@
+# кратко
+
+проект helloWorld
+- Начало (из папки с проктом и .xsa-файлом)
+	mkdir petalinux
+	cd petalinux
+	petalinux-create --template zynq --type project --name axi_gpio_test
+	cd axi_gpio_test
+	petalinux-config --get-hw-description=./../..	<-there is path to .xsa(in 2020) or .hdl file (if there will error: sudo apt-get install libtinfo5)
+- конфигурация
+	сохраняем и выходим
+- собираем
+	petalinux-build
+- генерируем BOOT.BIN
+	cd images/linux
+	petalinux-package --boot --format BIN --fsbl zynq_fsbl.elf --fpga --u-boot --force
+	
+# развёрнуто с установкой
+
 https://www.hackster.io/whitney-knitter/introduction-to-using-axi-dma-in-embedded-linux-5264ec
 
 Установка Petalinux
