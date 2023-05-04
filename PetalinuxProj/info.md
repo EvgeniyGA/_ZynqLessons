@@ -37,8 +37,8 @@ https://www.hackster.io/whitney-knitter/introduction-to-using-axi-dma-in-embedde
 5. Also
 	sudo dpkg-reconfigure dash
 	No->Enter
-	restart terminal
-//////////////////////////////////////////
+	restart terminal </br>
+//////////////////////////////////////////</br>
 Work with project, named 'axi_gpi_test'
 	mkdir petalinux
 	cd petalinux
