@@ -2,18 +2,20 @@
 
 проект helloWorld
 - Начало (из папки с проктом и .xsa-файлом)
-	mkdir petalinux
+	- mkdir petalinux </br>
 	cd petalinux
-	petalinux-create --template zynq --type project --name axi_gpio_test
+	- petalinux-create --template zynq --type project --name axi_gpio_test</br>
 	cd axi_gpio_test
-	petalinux-config --get-hw-description=./../..	<-there is path to .xsa(in 2020) or .hdl file (if there will error: sudo apt-get install libtinfo5)
+	- petalinux-config --get-hw-description=./../..	<-there is path to .xsa(in 2020) or .hdl file (if there will error: sudo apt-get install libtinfo5)
 - конфигурация
-	сохраняем и выходим
+	- сохраняем и выходим
 - собираем
-	petalinux-build
+	- petalinux-build
 - генерируем BOOT.BIN
-	cd images/linux
-	petalinux-package --boot --format BIN --fsbl zynq_fsbl.elf --fpga --u-boot --force
+	- cd images/linux
+	- ~~petalinux-package --boot --format BIN --fsbl zynq_fsbl.elf --fpga --u-boot --force~~
+	-   petalinux-package --wic --bootfiles "BOOT.BIN image.ub system.dtb boot.scr" --rootfs-file ./images/linux/rootfs.tar.gz</br>
+	потом полученный wiс-файл шьём belena etcher.
 	
 # развёрнуто с установкой
 
