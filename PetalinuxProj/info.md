@@ -2,21 +2,50 @@
 
 проект helloWorld
 - Начало (из папки с проктом и .xsa-файлом)
-	- mkdir petalinux </br>
-	cd petalinux
 	- petalinux-create --template zynq --type project --name axi_gpio_test</br>
 	cd axi_gpio_test
-	- petalinux-config --get-hw-description=./../..	<-there is path to .xsa(in 2020) or .hdl file (if there will error: sudo apt-get install libtinfo5)
+	- petalinux-config --get-hw-description=./..	<-there is path to .xsa(in 2020) or .hdl file (if there will error: sudo apt-get install libtinfo5)</br>
+	or (if xsa not changed)</br>
+	- petalinux-config
 - конфигурация
 	- сохраняем и выходим
 - собираем
 	- petalinux-build
 - генерируем BOOT.BIN
-	- cd images/linux
+	- petalinux-package --boot --format BIN --fsbl ./images/linux/zynq_fsbl.elf --fpga ./images/linux/system.bit --u-boot 
 	- ~~petalinux-package --boot --format BIN --fsbl zynq_fsbl.elf --fpga --u-boot --force~~
-	-   petalinux-package --wic --bootfiles "BOOT.BIN image.ub system.dtb boot.scr" --rootfs-file ./images/linux/rootfs.tar.gz</br>
+	- petalinux-package --wic --bootfiles "BOOT.BIN image.ub system.dtb boot.scr" --rootfs-file ./images/linux/rootfs.tar.gz</br>
 	потом полученный wiс-файл шьём belena etcher.
-	
+
+# пробуем ставить flask
+- создание образа
+	- правим /project-spec/meta-user/conf/petalinuxbsp.conf</br>
+		добавляем
+	# Extra system packages 
+	CONFIG_gsl
+	CONFIG_cmake
+
+	# Python3
+	CONFIG_python3
+	CONFIG_python3-pip
+	CONFIG_python3-cffi
+	CONFIG_python3-numpy
+	CONFIG_python3-shell
+	CONFIG_python3-pyserial
+	CONFIG_python3-threading
+	CONFIG_python3-multiprocessing
+
+	CONFIG_nano
+	- petalinux-config -c rootfs -> user-rootfsconfig включаем все новые
+	- petalinux-build
+- загружаем, ставим flask
+	- /run/media/mmcblk1p1# pip3 install flask --trusted-host pypi.org --trusted-host files.pythonhosted.org
+	- /run/media/mmcblk1p1# pip3 install requests --trusted-host pypi.org --trusted-host files.pythonhosted.org
+	- дальше создаём и запускаем сайт как тут: (https://www.hackster.io/whitney-knitter/custom-webserver-on-the-minized-1a1b18)
+	- запуск сервера: /media/sd-mmcblk0p1/gameboard# python3 webserver.py
+	- выключаем правильно: shutdown -h now
+# DMA https://www.hackster.io/whitney-knitter/introduction-to-using-axi-dma-in-embedded-linux-5264ec
+	-
 # развёрнуто с установкой
 
 https://www.hackster.io/whitney-knitter/introduction-to-using-axi-dma-in-embedded-linux-5264ec
