@@ -3,6 +3,7 @@
 проект helloWorld
 - Начало (из папки с проктом и .xsa-файлом)
 	- petalinux-create --template zynq --type project --name axi_gpio_test</br>
+	- petalinux-create -t apps --template c --name dmatest --enable
 	cd axi_gpio_test
 	- petalinux-config --get-hw-description=./..	<-there is path to .xsa(in 2020) or .hdl file (if there will error: sudo apt-get install libtinfo5)</br>
 	or (if xsa not changed)</br>
@@ -46,6 +47,13 @@
 	- выключаем правильно: shutdown -h now
 # DMA https://www.hackster.io/whitney-knitter/introduction-to-using-axi-dma-in-embedded-linux-5264ec
 	-
+	https://www.hackster.io/news/zynqberry-update-to-vivado-vitis-2019-2-66a5f33fbab5
+	https://www.hackster.io/whitney-knitter/custom-application-creation-in-petalinux-on-the-zynqberry-15ff77
+	https://www.hackster.io/whitney-knitter/debugging-your-custom-linux-applications-using-vitis-67c022
+	доп. инф. по установке модулей
+	https://support.xilinx.com/s/question/0D52E00006hpmlvSAA/petalinux-python-adding-modules?language=en_US
+	https://support.xilinx.com/s/question/0D52E00006iHiUqSAK/add-python-or-any-rpm-on-petalinux?language=en_US
+	https://support.xilinx.com/s/question/0D52E00006iHryxSAC/how-to-add-applications-to-petalinux?language=en_US
 # развёрнуто с установкой
 
 https://www.hackster.io/whitney-knitter/introduction-to-using-axi-dma-in-embedded-linux-5264ec
