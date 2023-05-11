@@ -1,0 +1,38 @@
+timestamp=[2023-05-08 13:01:51], mode=WORKBENCH_START, duration=0:00:05.871, duration_ms=5871, data={}
+timestamp=[2023-05-08 13:01:51], mode=WORKBENCH_UI_INIT, duration=0:00:00.629, duration_ms=629, data={editors_count=0, platform_editors_count=0, projects_count=0, platform_projects_count=0, active_platform_editor=false, projects=}
+timestamp=[2023-05-08 13:01:55], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:02.497, duration_ms=2497, data={}
+timestamp=[2023-05-08 20:04:29], mode=APP_CREATION, duration=0:00:17.159, duration_ms=17159, data={name=testGPIOsw, project_type=sdk, os=linux, processor=, runtime=cpp, platform=main_design_wrapper, application_type=application}
+timestamp=[2023-05-08 20:44:25], mode=PLATFORM_GENERATION, duration=0:00:23.509, duration_ms=23509, data={name=main_design_wrapper}
+timestamp=[2023-05-08 20:44:26], mode=BUILD, duration=0:00:01.478, duration_ms=1478, data={name=testGPIOsw, configuration=Debug, clean_build=false}
+timestamp=[2023-05-08 20:45:40], mode=BUILD, duration=0:00:00.508, duration_ms=508, data={name=testGPIOsw, configuration=Debug, clean_build=false}
+timestamp=[2023-05-08 20:47:48], mode=BUILD, duration=0:00:00.499, duration_ms=499, data={name=testGPIOsw, configuration=Debug, clean_build=false}
+timestamp=[2023-05-08 20:49:23], mode=BUILD, duration=0:00:00.497, duration_ms=497, data={name=testGPIOsw, configuration=Debug, clean_build=false}
+timestamp=[2023-05-08 20:49:39], mode=BUILD, duration=0:00:00.505, duration_ms=505, data={name=testGPIOsw, configuration=Debug, clean_build=false}
+timestamp=[2023-05-08 20:59:35], mode=BUILD, duration=0:00:00.818, duration_ms=818, data={name=testGPIOsw, configuration=Debug, clean_build=false}
+timestamp=[2023-05-08 20:59:35], mode=BUILD, duration=0:00:00.119, duration_ms=119, data={name=testGPIOsw_system, configuration=Debug, clean_build=false}
+timestamp=[2023-05-08 20:59:55], mode=BUILD, duration=0:00:00.556, duration_ms=556, data={name=testGPIOsw, configuration=Debug, clean_build=false}
+timestamp=[2023-05-08 21:00:10], mode=BUILD, duration=0:00:01.305, duration_ms=1305, data={name=testGPIOsw, configuration=Debug, clean_build=false}
+timestamp=[2023-05-08 21:01:35], mode=BUILD, duration=0:00:00.437, duration_ms=437, data={name=testGPIOsw, configuration=Debug, clean_build=false}
+timestamp=[2023-05-08 21:01:36], mode=BUILD, duration=0:00:00.126, duration_ms=126, data={name=testGPIOsw_system, configuration=Debug, clean_build=false}
+timestamp=[2023-05-08 21:06:31], mode=BUILD, duration=0:00:00.438, duration_ms=438, data={name=testGPIOsw, configuration=Debug, clean_build=false}
+timestamp=[2023-05-08 21:17:34], mode=BUILD, duration=0:00:00.448, duration_ms=448, data={name=testGPIOsw, configuration=Debug, clean_build=false}
+timestamp=[2023-05-08 21:19:24], mode=APP_CREATION, duration=0:00:09.741, duration_ms=9741, data={name=test2, project_type=sdk, os=linux, processor=, runtime=cpp, platform=main_design_wrapper_1, application_type=application}
+timestamp=[2023-05-08 21:20:29], mode=PLATFORM_GENERATION, duration=0:00:19.026, duration_ms=19026, data={name=main_design_wrapper_1}
+timestamp=[2023-05-08 21:20:30], mode=BUILD, duration=0:00:00.737, duration_ms=737, data={name=test2, configuration=Debug, clean_build=false}
+timestamp=[2023-05-08 21:25:52], mode=BUILD, duration=0:00:00.621, duration_ms=621, data={name=test2, configuration=Debug, clean_build=false}
+timestamp=[2023-05-08 21:30:18], mode=APP_CREATION, duration=0:00:08.914, duration_ms=8914, data={name=realTest, project_type=sdk, os=linux, processor=, runtime=cpp, platform=main_design_wrapper_2, application_type=application}
+timestamp=[2023-05-08 21:30:52], mode=PLATFORM_GENERATION, duration=0:00:18.830, duration_ms=18830, data={name=main_design_wrapper_2}
+timestamp=[2023-05-08 21:30:53], mode=BUILD, duration=0:00:00.752, duration_ms=752, data={name=realTest, configuration=Debug, clean_build=false}
+timestamp=[2023-05-08 21:31:06], mode=BUILD, duration=0:00:00.936, duration_ms=936, data={name=realTest, configuration=Debug, clean_build=false}
+timestamp=[2023-05-08 21:34:33], mode=BUILD, duration=0:00:00.120, duration_ms=120, data={name=realTest, configuration=Debug, clean_build=false}
+timestamp=[2023-05-08 21:50:45], mode=BUILD, duration=0:00:00.686, duration_ms=686, data={name=realTest, configuration=Debug, clean_build=false}
+timestamp=[2023-05-08 21:56:22], mode=BUILD, duration=0:00:00.561, duration_ms=561, data={name=realTest, configuration=Debug, clean_build=false}
+timestamp=[2023-05-08 21:56:45], mode=BUILD, duration=0:00:00.619, duration_ms=619, data={name=realTest, configuration=Debug, clean_build=false}
+timestamp=[2023-05-08 21:57:01], mode=BUILD, duration=0:00:00.616, duration_ms=616, data={name=realTest, configuration=Debug, clean_build=false}
+timestamp=[2023-05-08 22:00:19], mode=BUILD, duration=0:00:00.607, duration_ms=607, data={name=realTest, configuration=Debug, clean_build=false}
+timestamp=[2023-05-08 22:00:38], mode=BUILD, duration=0:00:00.632, duration_ms=632, data={name=realTest, configuration=Debug, clean_build=false}
+timestamp=[2023-05-08 22:02:13], mode=BUILD, duration=0:00:00.617, duration_ms=617, data={name=realTest, configuration=Debug, clean_build=false}
+timestamp=[2023-05-08 22:02:48], mode=BUILD, duration=0:00:00.645, duration_ms=645, data={name=realTest, configuration=Debug, clean_build=false}
+timestamp=[2023-05-08 22:03:05], mode=BUILD, duration=0:00:00.684, duration_ms=684, data={name=realTest, configuration=Debug, clean_build=false}
+timestamp=[2023-05-08 22:03:38], mode=BUILD, duration=0:00:00.631, duration_ms=631, data={name=realTest, configuration=Debug, clean_build=false}
+timestamp=[2023-05-08 22:06:04], mode=BUILD, duration=0:00:00.610, duration_ms=610, data={name=realTest, configuration=Debug, clean_build=false}

@@ -1,0 +1,10 @@
+timestamp=[2023-05-02 23:57:33], mode=WORKBENCH_START, duration=0:00:05.401, duration_ms=5401, data={}
+timestamp=[2023-05-02 23:57:34], mode=WORKBENCH_UI_INIT, duration=0:00:00.608, duration_ms=608, data={editors_count=0, platform_editors_count=0, projects_count=0, platform_projects_count=0, active_platform_editor=false, projects=}
+timestamp=[2023-05-02 23:57:37], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:02.495, duration_ms=2495, data={}
+timestamp=[2023-05-03 00:00:23], mode=APP_CREATION, duration=0:00:14.641, duration_ms=14641, data={name=test_axi_dma, project_type=sdk, os=linux, processor=, runtime=cpp, platform=main_wrapper, application_type=application}
+timestamp=[2023-05-03 17:07:03], mode=WORKBENCH_START, duration=0:00:09.974, duration_ms=9974, data={}
+timestamp=[2023-05-03 17:07:04], mode=WORKBENCH_UI_INIT, duration=0:00:00.810, duration_ms=810, data={editors_count=3, platform_editors_count=0, projects_count=4, platform_projects_count=1, active_platform_editor=false, projects=RemoteSystemsTempFiles,main_wrapper,test_axi_dma,test_axi_dma_system}
+timestamp=[2023-05-03 17:07:04], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:00.052, duration_ms=52, data={}
+timestamp=[2023-05-03 20:45:00], mode=WORKBENCH_START, duration=0:00:12.383, duration_ms=12383, data={}
+timestamp=[2023-05-03 20:45:00], mode=WORKBENCH_UI_INIT, duration=0:00:00.637, duration_ms=637, data={editors_count=3, platform_editors_count=0, projects_count=4, platform_projects_count=1, active_platform_editor=false, projects=RemoteSystemsTempFiles,main_wrapper,test_axi_dma,test_axi_dma_system}
+timestamp=[2023-05-03 20:45:01], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:00.058, duration_ms=58, data={}

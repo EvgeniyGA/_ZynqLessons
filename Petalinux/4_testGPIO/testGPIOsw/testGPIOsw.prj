@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<sdkproject:SdkProject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sdkproject="http://www.xilinx.com/sdkproject" name="testGPIOsw" location="C:/Projects/_Zynq/_ZynqLessons/Petalinux/4_testGPIO/testGPIOsw" platform="C:/Projects/_Zynq/_ZynqLessons/Petalinux/4_testGPIO/main_design_wrapper/export/main_design_wrapper/main_design_wrapper.xpfm" platformUID="xilinx:::0.0(custom)" systemProject="testGPIOsw_system" sysConfig="main_design_wrapper" runtime="cpp" cpu="domain_ps7_cortexa9" cpuInstance="cortex-a9" os="linux">
+  <configuration name="Debug" id="xilinx.gnu.armv7.linux.exe.debug.1577341755">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+    <lastBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <configuration name="Release" id="xilinx.gnu.armv7.linux.exe.release.1701518547" dirty="true">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <template appTemplateName="linux_hello_world"/>
+</sdkproject:SdkProject>

@@ -1,0 +1,7 @@
+/*helloPlatformProject*/
+the_ROM_image:
+{
+  [bootloader]<helloPlatformProject/boot/fsbl.elf>
+   <bitstream> 
+  <elf,ps7_cortexa9_0>
+}
