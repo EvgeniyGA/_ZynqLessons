@@ -2,6 +2,9 @@
 - https://www.youtube.com/playlist?list=PLcV-rIMdGc6WLB9QN8d_XsiM8_xyHbT-g
 - https://habr.com/ru/articles/567408/
 - https://buildroot.org/downloads/manual/manual.html
+про DMA:
+- https://habr.com/ru/articles/415435/
+- https://github.com/jeremytrimble/ezdma
 
 # кратко
 https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18842156/Fetch+Sources
@@ -32,22 +35,16 @@ https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18842156/Fetch+Sources
   - ./build.sh
   - получаем custom.dts. Копируем его в папку tools/u-boot-xlnx/arch/arm/dts.
   - находим там Makefile и дописываем, там где CONFIG_ARCH_ZYNQ: custom.dtb
-- далее (это не надо на цынке)
-  - заходим в arm-trusted-firmware
-  - export CROSS_COMPILE=/home/zynq/tools/gcc-arm/bin/arm-none-linux-gnueabihf-
-  - export ARCH=arm
 - нужен fsbl.elf. В SDK нужно создавать проект, в Vitis генерится автоматически. Копируем его в tools виртуалки.
 - beatstream файл так же копируем в tools. mainBlock_wrapper.bit переименуем в system.bit.
-- u-boot-xilinx:
-  - нужно отредактировать uboot config file 
-  - ...
+
 - git clone https://github.com/Xilinx/u-boot-xlnx.git
   cd u-boot-xlnx
     - export CROSS_COMPILE=arm-linux-gnueabihf-
       export ARCH=arm
       make distclean
       make xilinx_zynq_virt_defconfig
-      export DEVICE_TREE="zynq-qmtech"
+      export DEVICE_TREE="zynq-qmtech" // вместо этого у кб-радар сразу make
     - копируем файл system.dtb в папку arc/arm/dts (но е его надо переименовать в zynq-qmtech):
       mv ~/Zynq/Projects/8.Linux/8.Linux.sdk/device_tree_bsp_0/zynq-qmtech.dtb \
       arch/arm/dts/
@@ -110,7 +107,23 @@ https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18842156/Fetch+Sources
           - cd images
           - sudo mkimage -A arm -T ramdisk -C gzip -d rootfs.cpio uramdisk.image.gz
      - Копируем на загрузочную microSD файлы uImage и uramdisk.image.gz и файл devicetree.dtb. И BOOT.bin вроде тоже надо
+     - при первой загрузе надо в меню u-boot вписать:
+setenv mmc_boot 'fatload mmc 0 0x3000000 uImage; fatload mmc 0 0x2A00000 devicetree.dtb; fatload mmc 0 0x2000000 uramdisk.image.gz; bootm 0x3000000 0x2000000 0x2A00000;'
+saveenv
+reset
 
 ## кастомная прога
 - в папке с проектом создаём папку Application
 - туда добавляем  touch loop.c Makefile
+
+# по курсу КБ Радар
+https://github.com/farbius/linux-vitis-zynq
+https://youtu.be/Si1VfsejzdU?list=PLcV-rIMdGc6WLB9QN8d_XsiM8_xyHbT-g
+- в папку boot кидаем xsa после vitis. Тудаже летит u-boog.elf, fsbl
+- в папку u-boot-xlnx(нет, в корневую) он кладёт zynq-arty.h с настройками (IP, команда типа загрузки).
+  - Когда мы запишем во флеш BOOT.bin, то после загрузки его, поведение системы будет определяться этим файлом
+- когда в vitis делаем BOOT.bin, нужно переключиться на Import from existing BIF 
+- в папке external-tree/board у него интересные файлы: kernel.config, image.its
+- в Vitis создаём обычный проект. HellowWorld. На вкладке Domain кликаем +, добавляем домен, OperatingSystem->Standalone, Template->HelloWorld
+- Когда проект создан и скомпилирован, идём в Xilinx->ProgramFlash, ImageFile:->BOOT.bin, InitFile:->fsbl.elf, FlshType:->QSPI-X4-Single
+- program
