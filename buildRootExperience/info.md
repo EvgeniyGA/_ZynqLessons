@@ -110,3 +110,7 @@ https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18842156/Fetch+Sources
           - cd images
           - sudo mkimage -A arm -T ramdisk -C gzip -d rootfs.cpio uramdisk.image.gz
      - Копируем на загрузочную microSD файлы uImage и uramdisk.image.gz и файл devicetree.dtb. И BOOT.bin вроде тоже надо
+
+## кастомная прога
+- в папке с проектом создаём папку Application
+- туда добавляем  touch loop.c Makefile
