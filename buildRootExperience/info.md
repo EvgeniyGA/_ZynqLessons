@@ -1,6 +1,7 @@
 Основные источники:
 - https://www.youtube.com/playlist?list=PLcV-rIMdGc6WLB9QN8d_XsiM8_xyHbT-g
 - https://habr.com/ru/articles/567408/
+- https://buildroot.org/downloads/manual/manual.html
 
 # кратко
 https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18842156/Fetch+Sources
@@ -22,4 +23,90 @@ https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18842156/Fetch+Sources
   - выкачиваем Device Tree Compiler: git clone https://git.kernel.org/pub/scm/utils/dtc/dtc.git
   - выкачиваем Arm Trusted Firmware и распаковываем: [git clone git@github.com:Xilinx/arm-trusted-firmware.git](https://github.com/Xilinx/arm-trusted-firmware)
   - mkdir devicetree
-- из Vitis или Sdk делаем DeviceTree. В SDK нужно создавать проект device_tree, в Vitis: Xilinx->Generate Device Tree 
+- из Vitis или Sdk делаем DeviceTree. В SDK нужно создавать проект device_tree, в Vitis: Xilinx->Generate Device Tree. Файлы, которые получася, будут в папке Device Tree. Их нужно скопировать в папку deviceTree на виртуалке
+  - делаем там скрипт build.sh:
+    #!/bin/bash
+    gcc -I my_dts -E -nostdinc -undef -D__DTS__ -x assembler-with-cpp -o custom.dts system-top.dts
+    dtc -I dts -O dtb -o system.dtb custom.dts
+  - chmod +x build.sh
+  - ./build.sh
+  - получаем custom.dts. Копируем его в папку tools/u-boot-xlnx/arch/arm/dts.
+  - находим там Makefile и дописываем, там где CONFIG_ARCH_ZYNQ: custom.dtb
+- далее (это не надо на цынке)
+  - заходим в arm-trusted-firmware
+  - export CROSS_COMPILE=/home/zynq/tools/gcc-arm/bin/arm-none-linux-gnueabihf-
+  - export ARCH=arm
+- нужен fsbl.elf. В SDK нужно создавать проект, в Vitis генерится автоматически. Копируем его в tools виртуалки.
+- beatstream файл так же копируем в tools. mainBlock_wrapper.bit переименуем в system.bit.
+- u-boot-xilinx:
+  - нужно отредактировать uboot config file 
+  - ...
+- git clone https://github.com/Xilinx/u-boot-xlnx.git
+  cd u-boot-xlnx
+    - export CROSS_COMPILE=arm-linux-gnueabihf-
+      export ARCH=arm
+      make distclean
+      make xilinx_zynq_virt_defconfig
+      export DEVICE_TREE="zynq-qmtech"
+    - копируем файл system.dtb в папку arc/arm/dts (но е его надо переименовать в zynq-qmtech):
+      mv ~/Zynq/Projects/8.Linux/8.Linux.sdk/device_tree_bsp_0/zynq-qmtech.dtb \
+      arch/arm/dts/
+    - sudo apt-get install libssl-dev
+    - sudo apt-get install uuid-dev
+    - sudo apt-get install libgnutls28-dev
+    - make -j$(nproc)
+    - получаем u-boot.elf
+
+
+# https://habr.com/ru/articles/567408/
+- идём обратно в tools
+- git clone git://git.buildroot.net/buildroot
+- cd buildroot
+- git checkout 2021.05.x  //git checkout 2023.02.x
+- создаём отдельно папку /Projects/buildroot и идём туда
+  - mkdir -p board/qmtech/z7020/rootfs_overlay
+  - mkdir -p board/qmtech/z7020/patches
+  - mkdir configs
+  - mkdir -p  package/qmtech/package1
+- Создадим файл, запуская который у нас будет открываться меню конфигурации:
+  - touch br_config
+  - chmod +x br_config
+  - nano br_config
+    - #!/bin/sh
+      make -C /home/zynq/tools/buildroot \
+      O=$PWD \
+      ARCH=arm \
+      nconfig
+  - ./br_config
+  - можно сразу в tools склонировать:
+    - git clone https://github.com/Xilinx/linux-xlnx
+    - cd linux-xlnx
+    - git show-ref | grep master:
+      3a2a9dcee70777a85b3952269c47e6eb65779b78 refs/heads/master
+    - там же make menuconfig
+    - видим в заголовке версию ядра 6.1.0
+    - так же посмотрим версию компилятора GCC, видим 8: gcc -dumpversion
+    - нужно подготовить всё для кросскомпиляции ядра:
+      - sudo apt install \
+        git gcc-arm-linux-gnueabihf u-boot-tools build-essential -y
+      - ядро:
+          git clone https://github.com/Xilinx/linux-xlnx
+          cd linux-xlnx
+          make clean
+          make ARCH=arm xilinx_zynq_defconfig
+          можно попробовать запустить компиляцию ядра: make ARCH=arm UIMAGE_LOADADDR=0x8000 uImage -j8
+      - В папке projects/buildroot Делаем скрипт br_build
+          - #!/bin/sh
+            sudo make -C /home/zynq/tools/buildroot \
+            O=$PWD
+            ARCH=arm \
+            BR2_JLEVEL="$(($(nproc) - 1))"
+          
+          - chmod +x br_build
+          - ./br_build
+          - После окончания компиляции в папке images/ появятся необходимые образы
+          - Для того, чтобы можно было воспользоваться образом rootfs - необходимо сделать подпись для загрузки его через U-Boot.
+          - Для этого нам понадобится пакет U-Boot-tools: sudo apt install u-boot-tools
+          - cd images
+          - sudo mkimage -A arm -T ramdisk -C gzip -d rootfs.cpio uramdisk.image.gz
+     - Копируем на загрузочную microSD файлы uImage и uramdisk.image.gz и файл devicetree.dtb. И BOOT.bin вроде тоже надо
