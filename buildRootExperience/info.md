@@ -84,13 +84,13 @@ https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18842156/Fetch+Sources
     - видим в заголовке версию ядра 6.1.0
     - так же посмотрим версию компилятора GCC, видим 8: gcc -dumpversion
     - нужно подготовить всё для кросскомпиляции ядра:
-      - sudo apt install \
-        git gcc-arm-linux-gnueabihf u-boot-tools build-essential -y
+      - sudo apt install \ </br>
+        git gcc-arm-linux-gnueabihf u-boot-tools build-essential -y </br>
       - ядро:
-          git clone https://github.com/Xilinx/linux-xlnx
-          cd linux-xlnx
-          make clean
-          make ARCH=arm xilinx_zynq_defconfig
+          git clone https://github.com/Xilinx/linux-xlnx </br>
+          cd linux-xlnx </br>
+          make clean </br>
+          make ARCH=arm xilinx_zynq_defconfig </br>
           можно попробовать запустить компиляцию ядра: make ARCH=arm UIMAGE_LOADADDR=0x8000 uImage -j8
       - В папке projects/buildroot Делаем скрипт br_build
           - #!/bin/sh
