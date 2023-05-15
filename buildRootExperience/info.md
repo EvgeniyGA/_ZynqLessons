@@ -6,6 +6,16 @@
 - https://habr.com/ru/articles/415435/
 - https://github.com/jeremytrimble/ezdma
 
+## немного заметок
+- для создания boot image в SDK кликают ПКМ по проекту FSBL. И в меню будет create Boot Image. FSBL.elf и wrapper.bit уже будут в списке. Останется добавить u-boot.elf
+- тут про подготовку SD-карты в GParted: https://youtu.be/-oMpwnnU5wQ
+- ещё он тут создаёт и кадаеть в корень SD-карты файл uEnf.txt
+- обновление gcc:
+![image](https://github.com/EvgeniyGA/_ZynqLessons/assets/93276404/5983d2c4-eef9-4fee-a7bf-e8f55c0ccc83)
+- много нового: https://www.youtube.com/watch?v=-oMpwnnU5wQ&list=PLL68e6slJFY2PXU6l1dFs6sia4dPOJ_3n
+- и вот тоже: https://www.youtube.com/watch?v=j2RGx5yFwEM
+- видосик от макрогрупп посмотреть: https://youtu.be/v2sPCNIZ9Nw?list=PLOAGAleh9wTkAD7CGTqts3ktmnr7bZrQz
+
 # кратко
 https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18842156/Fetch+Sources
 
