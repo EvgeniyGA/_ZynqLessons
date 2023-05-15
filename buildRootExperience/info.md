@@ -55,7 +55,7 @@ https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18842156/Fetch+Sources
     - получаем u-boot.elf
 
 
-# https://habr.com/ru/articles/567408/
+## дальше отсюда https://habr.com/ru/articles/567408/
 - идём обратно в tools
 - git clone git://git.buildroot.net/buildroot
 - cd buildroot
