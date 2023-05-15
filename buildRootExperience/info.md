@@ -24,7 +24,7 @@ https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18842156/Fetch+Sources
 там распаковываем: tar -xvf gcc-arm-10.3-2021.07-x86_64-arm-none-linux-gnueabihf.tar.xz</br>
 переименуем папку в gcc-arm
   - выкачиваем Device Tree Compiler: git clone https://git.kernel.org/pub/scm/utils/dtc/dtc.git
-  - выкачиваем Arm Trusted Firmware и распаковываем: [git clone git@github.com:Xilinx/arm-trusted-firmware.git](https://github.com/Xilinx/arm-trusted-firmware)
+  - ~~выкачиваем Arm Trusted Firmware и распаковываем: [git clone git@github.com:Xilinx/arm-trusted-firmware.git]~~(https://github.com/Xilinx/arm-trusted-firmware)
   - mkdir devicetree
 - из Vitis или Sdk делаем DeviceTree. В SDK нужно создавать проект device_tree, в Vitis: Xilinx->Generate Device Tree. Файлы, которые получася, будут в папке Device Tree. Их нужно скопировать в папку deviceTree на виртуалке
   - делаем там скрипт build.sh:
