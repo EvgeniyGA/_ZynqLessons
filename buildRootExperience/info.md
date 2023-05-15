@@ -40,13 +40,13 @@ https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18842156/Fetch+Sources
 
 - git clone https://github.com/Xilinx/u-boot-xlnx.git
   cd u-boot-xlnx
-    - export CROSS_COMPILE=arm-linux-gnueabihf-
-      export ARCH=arm
-      make distclean
-      make xilinx_zynq_virt_defconfig
-      export DEVICE_TREE="zynq-qmtech" // вместо этого у кб-радар сразу make
-    - копируем файл system.dtb в папку arc/arm/dts (но е его надо переименовать в zynq-qmtech):
-      mv ~/Zynq/Projects/8.Linux/8.Linux.sdk/device_tree_bsp_0/zynq-qmtech.dtb \
+    - export CROSS_COMPILE=arm-linux-gnueabihf-</br>
+      export ARCH=arm</br>
+      make distclean</br>
+      make xilinx_zynq_virt_defconfig</br>
+      export DEVICE_TREE="zynq-qmtech" // вместо этого у кб-радар сразу make</br>
+    - копируем файл system.dtb в папку arc/arm/dts (но е его надо переименовать в zynq-qmtech):</br>
+      mv ~/Zynq/Projects/8.Linux/8.Linux.sdk/device_tree_bsp_0/zynq-qmtech.dtb \</br>
       arch/arm/dts/
     - sudo apt-get install libssl-dev
     - sudo apt-get install uuid-dev
