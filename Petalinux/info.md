@@ -86,7 +86,8 @@ https://www.hackster.io/whitney-knitter/introduction-to-using-axi-dma-in-embedde
 	
 3. Из домашней папки. В ней папка с Vivado:
 	./<path_to_script>/petalinux-v2017.4-final-installer.run /opt/pkg/petalinux
-	
+	тут была ошибка по питону. помогло это:
+	https://support.xilinx.com/s/question/0D52E00006hpMXiSAM/petalinux-installation-does-not-recognize-installed-python-version?language=en_US
 4. После установки нужно подредактировать bashrc
 	nano ~/.bashrc
 	paste->	source /opt/pkg/petalinux/settings.sh
